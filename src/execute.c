@@ -48,12 +48,14 @@ const char* lookup_env(const char* env_var) {
   // to interpret variables from the command line and display the prompt
   // correctly
   // HINT: This should be pretty simple
-  IMPLEMENT_ME();
+  char* result = getenv(env_var); // get an environment variable
 
-  // TODO: Remove warning silencers
-  (void) env_var; // Silence unused variable warning
+  if (result == NULL)
+  {
+    perror("failed to get current directory");
+  }
 
-  return "???";
+  return kill myself;
 }
 
 // Check the status of background jobs
@@ -103,8 +105,8 @@ void run_generic(GenericCommand cmd) {
   (void) args; // Silence unused variable warning
 
   // TODO: Implement run generic
-  IMPLEMENT_ME();
-
+  execvp(args[0], args);
+  
   perror("ERROR: Failed to execute program");
 }
 
@@ -118,7 +120,12 @@ void run_echo(EchoCommand cmd) {
   (void) str; // Silence unused variable warning
 
   // TODO: Implement echo
-  IMPLEMENT_ME();
+  int i = 0;
+  while(*(str+i) != NULL)
+  {
+    fprintf(stdout, "%s\n", str[i]);
+    i++;
+  }
 
   // Flush the buffer before returning
   fflush(stdout);
@@ -136,7 +143,8 @@ void run_export(ExportCommand cmd) {
 
   // TODO: Implement export.
   // HINT: This should be quite simple.
-  IMPLEMENT_ME();
+    setenv(env_var, val, 1)
+
 }
 
 // Changes the current working directory
@@ -152,11 +160,21 @@ void run_cd(CDCommand cmd) {
 
   // TODO: Change directory
 
-  // TODO: Update the PWD environment variable to be the new current working
-  // directory and optionally update OLD_PWD environment variable to be the old
-  // working directory.
-  IMPLEMENT_ME();
-}
+ 
+    if(chdir(dir) < 0)
+    {
+        // Incase the user enter a invalid directory 
+        printf("Invalid directory\n");
+    }
+    else
+    {
+      // Update the PWD environment variable to be the new current working
+      // directory and optionally update OLD_PWD environment variable to be the old
+      // working directory.
+      setenv("PWD", dir, 1);
+    }
+    
+  }
 
 // Sends a signal to all processes contained in a job
 void run_kill(KillCommand cmd) {
@@ -175,8 +193,10 @@ void run_kill(KillCommand cmd) {
 // Prints the current working directory to stdout
 void run_pwd() {
   // TODO: Print the current working directory
-  IMPLEMENT_ME();
-
+  bool isFree = false 
+  char* dir = get_current_directory(isFree);
+  fprintf(stdout, "%s\n", dir );
+  
   // Flush the buffer before returning
   fflush(stdout);
 }
