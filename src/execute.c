@@ -13,6 +13,15 @@
 
 #include "quash.h"
 
+
+//set up the queues 
+IMPLEMENT_DEQUE_STRUCT(pid_queue, pid_t);
+IMPLEMENT_DEQUE(pid_queue, pid_t);
+
+// pipe Arrays 
+static int environment_pipes[2][2];
+....................................
+
 // Remove this and all expansion calls to it
 /**
  * @brief Note calls to any function that requires implementation
@@ -55,7 +64,7 @@ const char* lookup_env(const char* env_var) {
     perror("failed to get current directory");
   }
 
-  return kill myself;
+  return result;
 }
 
 // Check the status of background jobs
@@ -106,7 +115,7 @@ void run_generic(GenericCommand cmd) {
 
   // TODO: Implement run generic
   execvp(args[0], args);
-  
+
   perror("ERROR: Failed to execute program");
 }
 
