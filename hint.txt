@@ -1,0 +1,25 @@
+IMPLEMENT_DEQUE_STRUCT(PIDDeque, pid_t)
+IMPLEMENT_DequeC(PIDDeque,pid_t)
+
+
+typedef struct Job{
+
+int job_id;
+char cmd;
+PIDDeque list
+
+}Job;
+
+IMPLEMENT_ DEQUE_STRUCT(JobDeque, Job)
+IMPLEMENT_ DEQUE(JobQueque, Job);
+
+JobQueue   jobs;
+
+
+static Job _new_job()
+{
+return(Job){
+get_command_string();
+new_PIDDeque();
+};
+}

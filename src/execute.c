@@ -28,12 +28,18 @@
 char* get_current_directory(bool* should_free) {
   // TODO: Get the current working directory. This will fix the prompt path.
   // HINT: This should be pretty simple
-  IMPLEMENT_ME();
 
+  char* result = NULL;
+  result = getcwd(NULL, 0);
+
+  if (result == NULL)
+  {
+    perror("failed to get current directory");
+  }
   // Change this to true if necessary
-  *should_free = false;
+  *should_free = true;
 
-  return "get_current_directory()";
+  return result;
 }
 
 // Returns the value of an environment variable env_var
@@ -303,11 +309,30 @@ void create_process(CommandHolder holder) {
   (void) r_app; // Silence unused variable warning
 
   // TODO: Setup pipes, redirects, and new process
-  IMPLEMENT_ME();
 
-  //parent_run_command(holder.cmd); // This should be done in the parent branch of
-                                  // a fork
-  //child_run_command(holder.cmd); // This should be done in the child branch of a fork
+
+  pid_t pid;
+
+  pid = fork();    // a fork
+
+  if(pid == 0)
+  {
+    //child do stuff
+  //   close(p1[0]);
+  // dup2(p1[1], STDOUT_FILENO);
+  //
+    child_run_command(holder.cmd); // This should be done in the child branch of a fork
+
+
+
+  }
+  else
+  {
+    //Parent do stuff
+    parent_run_command(holder.cmd); // This should be done in the parent branch of
+  }
+
+
 }
 
 // Run a list of commands
@@ -333,6 +358,8 @@ void run_script(CommandHolder* holders) {
     // Not a background Job
     // TODO: Wait for all processes under the job to complete
     IMPLEMENT_ME();
+
+
   }
   else {
     // A background job.
