@@ -20,7 +20,15 @@ IMPLEMENT_DEQUE(pid_queue, pid_t);
 
 // pipe Arrays 
 static int environment_pipes[2][2];
-....................................
+
+
+//Set up job structure
+
+typedef struct job_struct{
+	int job_id;
+	pid_queue pids;
+	char *cmd;
+} job_t;
 
 // Remove this and all expansion calls to it
 /**
