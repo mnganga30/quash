@@ -1,0 +1,49 @@
+==4736== Memcheck, a memory error detector
+==4736== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==4736== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==4736== Command: /mnt/c/Users/martin/Desktop/quash/quash
+==4736== 
+==4736== error calling PR_SET_PTRACER, vgdb might block
+==4737== error calling PR_SET_PTRACER, vgdb might block
+quash: src/execute.c:40: length_job_queue: Assertion `deq->data != NULL' failed.
+==4736== 
+==4736== Process terminating with default action of signal 6 (SIGABRT)
+==4736==    at 0x4E7AE97: raise (raise.c:51)
+==4736==    by 0x4E7C800: abort (abort.c:79)
+==4736==    by 0x4E6C399: __assert_fail_base (assert.c:92)
+==4736==    by 0x4E6C411: __assert_fail (assert.c:101)
+==4736==    by 0x10B0A3: length_job_queue (execute.c:40)
+==4736==    by 0x10C118: check_jobs_bg_status (execute.c:92)
+==4736==    by 0x10CC64: run_script (execute.c:528)
+==4736==    by 0x109A1E: main (quash.c:132)
+==4736== 
+==4736== HEAP SUMMARY:
+==4736==     in use at exit: 21,865 bytes in 8 blocks
+==4736==   total heap usage: 24 allocs, 16 frees, 31,531 bytes allocated
+==4736== 
+==4736== 8 bytes in 1 blocks are definitely lost in loss record 2 of 8
+==4736==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4736==    by 0x10A471: __on_push_pid_queue (execute.c:24)
+==4736==    by 0x10A69D: push_back_pid_queue (execute.c:24)
+==4736==    by 0x10CB72: create_process (execute.c:500)
+==4736==    by 0x10CD2D: run_script (execute.c:545)
+==4736==    by 0x109A1E: main (quash.c:132)
+==4736== 
+==4736== 31 bytes in 1 blocks are definitely lost in loss record 3 of 8
+==4736==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4736==    by 0x4ED99B9: strdup (strdup.c:42)
+==4736==    by 0x109930: get_command_string (quash.c:88)
+==4736==    by 0x10CCF2: run_script (execute.c:536)
+==4736==    by 0x109A1E: main (quash.c:132)
+==4736== 
+==4736== LEAK SUMMARY:
+==4736==    definitely lost: 39 bytes in 2 blocks
+==4736==    indirectly lost: 0 bytes in 0 blocks
+==4736==      possibly lost: 0 bytes in 0 blocks
+==4736==    still reachable: 21,826 bytes in 6 blocks
+==4736==         suppressed: 0 bytes in 0 blocks
+==4736== Reachable blocks (those to which a pointer was found) are not shown.
+==4736== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==4736== 
+==4736== For counts of detected and suppressed errors, rerun with: -v
+==4736== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)

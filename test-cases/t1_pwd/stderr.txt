@@ -1,0 +1,61 @@
+==7159== Memcheck, a memory error detector
+==7159== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==7159== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==7159== Command: /mnt/c/Users/martin/Desktop/quash/quash
+==7159== 
+==7159== error calling PR_SET_PTRACER, vgdb might block
+==7160== Invalid write of size 1
+==7160==    at 0x10C0AC: get_current_directory (execute.c:68)
+==7160==    by 0x10C5F9: run_pwd (execute.c:284)
+==7160==    by 0x10C786: child_run_command (execute.c:340)
+==7160==    by 0x10CAA5: create_process (execute.c:484)
+==7160==    by 0x10CD11: run_script (execute.c:548)
+==7160==    by 0x109A1E: main (quash.c:132)
+==7160==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==7160== 
+==7160== 
+==7160== Process terminating with default action of signal 11 (SIGSEGV)
+==7160==  Access not within mapped region at address 0x0
+==7160==    at 0x10C0AC: get_current_directory (execute.c:68)
+==7160==    by 0x10C5F9: run_pwd (execute.c:284)
+==7160==    by 0x10C786: child_run_command (execute.c:340)
+==7160==    by 0x10CAA5: create_process (execute.c:484)
+==7160==    by 0x10CD11: run_script (execute.c:548)
+==7160==    by 0x109A1E: main (quash.c:132)
+==7160==  If you believe this happened as a result of a stack
+==7160==  overflow in your program's main thread (unlikely but
+==7160==  possible), you can try to increase the size of the
+==7160==  main thread stack using the --main-stacksize= flag.
+==7160==  The main thread stack size used in this run was 8388608.
+==7160== 
+==7160== HEAP SUMMARY:
+==7160==     in use at exit: 21,891 bytes in 9 blocks
+==7160==   total heap usage: 12 allocs, 3 frees, 23,235 bytes allocated
+==7160== 
+==7160== LEAK SUMMARY:
+==7160==    definitely lost: 0 bytes in 0 blocks
+==7160==    indirectly lost: 0 bytes in 0 blocks
+==7160==      possibly lost: 0 bytes in 0 blocks
+==7160==    still reachable: 21,891 bytes in 9 blocks
+==7160==         suppressed: 0 bytes in 0 blocks
+==7160== Reachable blocks (those to which a pointer was found) are not shown.
+==7160== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==7160== 
+==7160== For counts of detected and suppressed errors, rerun with: -v
+==7160== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+==7159== 
+==7159== HEAP SUMMARY:
+==7159==     in use at exit: 56 bytes in 1 blocks
+==7159==   total heap usage: 13 allocs, 12 frees, 23,243 bytes allocated
+==7159== 
+==7159== LEAK SUMMARY:
+==7159==    definitely lost: 0 bytes in 0 blocks
+==7159==    indirectly lost: 0 bytes in 0 blocks
+==7159==      possibly lost: 0 bytes in 0 blocks
+==7159==    still reachable: 56 bytes in 1 blocks
+==7159==         suppressed: 0 bytes in 0 blocks
+==7159== Reachable blocks (those to which a pointer was found) are not shown.
+==7159== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==7159== 
+==7159== For counts of detected and suppressed errors, rerun with: -v
+==7159== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

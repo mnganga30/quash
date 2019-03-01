@@ -1,8 +1,8 @@
-/* A Bison parser, made by GNU Bison 3.0.2.  */
+/* A Bison parser, made by GNU Bison 3.0.4.  */
 
 /* Bison implementation for Yacc-like parsers in C
 
-   Copyright (C) 1984, 1989-1990, 2000-2013 Free Software Foundation, Inc.
+   Copyright (C) 1984, 1989-1990, 2000-2015 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -44,7 +44,7 @@
 #define YYBISON 1
 
 /* Bison version.  */
-#define YYBISON_VERSION "3.0.2"
+#define YYBISON_VERSION "3.0.4"
 
 /* Skeleton name.  */
 #define YYSKELETON_NAME "yacc.c"
@@ -154,7 +154,7 @@ extern int yydebug;
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
-typedef union YYSTYPE YYSTYPE;
+
 union YYSTYPE
 {
 #line 31 "src/parsing/parse.y" /* yacc.c:355  */
@@ -170,6 +170,8 @@ union YYSTYPE
 
 #line 172 "src/parsing/parse.tab.c" /* yacc.c:355  */
 };
+
+typedef union YYSTYPE YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define YYSTYPE_IS_DECLARED 1
 #endif
@@ -183,7 +185,7 @@ int yyparse (CommandHolder** __ret_cmds);
 
 /* Copy the second part of user declarations.  */
 
-#line 187 "src/parsing/parse.tab.c" /* yacc.c:358  */
+#line 189 "src/parsing/parse.tab.c" /* yacc.c:358  */
 
 #ifdef short
 # undef short
@@ -1301,7 +1303,7 @@ yyreduce:
 
   YYACCEPT;
 }
-#line 1305 "src/parsing/parse.tab.c" /* yacc.c:1646  */
+#line 1307 "src/parsing/parse.tab.c" /* yacc.c:1646  */
     break;
 
   case 3:
@@ -1313,7 +1315,7 @@ yyreduce:
 
   YYACCEPT;
 }
-#line 1317 "src/parsing/parse.tab.c" /* yacc.c:1646  */
+#line 1319 "src/parsing/parse.tab.c" /* yacc.c:1646  */
     break;
 
   case 4:
@@ -1327,7 +1329,7 @@ yyreduce:
 
   YYACCEPT;
 }
-#line 1331 "src/parsing/parse.tab.c" /* yacc.c:1646  */
+#line 1333 "src/parsing/parse.tab.c" /* yacc.c:1646  */
     break;
 
   case 5:
@@ -1337,7 +1339,7 @@ yyreduce:
 
   YYABORT;
 }
-#line 1341 "src/parsing/parse.tab.c" /* yacc.c:1646  */
+#line 1343 "src/parsing/parse.tab.c" /* yacc.c:1646  */
     break;
 
   case 6:
@@ -1349,7 +1351,7 @@ yyreduce:
 
   YYABORT;
 }
-#line 1353 "src/parsing/parse.tab.c" /* yacc.c:1646  */
+#line 1355 "src/parsing/parse.tab.c" /* yacc.c:1646  */
     break;
 
   case 7:
@@ -1361,7 +1363,7 @@ yyreduce:
 
   (yyval.cmd_list) = cs;
 }
-#line 1365 "src/parsing/parse.tab.c" /* yacc.c:1646  */
+#line 1367 "src/parsing/parse.tab.c" /* yacc.c:1646  */
     break;
 
   case 8:
@@ -1380,7 +1382,7 @@ yyreduce:
 
   (yyval.cmd_list) = (yyvsp[0].cmd_list);
 }
-#line 1384 "src/parsing/parse.tab.c" /* yacc.c:1646  */
+#line 1386 "src/parsing/parse.tab.c" /* yacc.c:1646  */
     break;
 
   case 9:
@@ -1393,7 +1395,7 @@ yyreduce:
 
   (yyval.holder) = mk_command_holder((yyvsp[-1].redirect).in, (yyvsp[-1].redirect).out, flags, (yyvsp[-2].cmd));
 }
-#line 1397 "src/parsing/parse.tab.c" /* yacc.c:1646  */
+#line 1399 "src/parsing/parse.tab.c" /* yacc.c:1646  */
     break;
 
   case 10:
@@ -1401,7 +1403,7 @@ yyreduce:
     {
   (yyval.cmd) = mk_generic_command(as_array_CmdStrs(&(yyvsp[0].cmd_strs), NULL));
 }
-#line 1405 "src/parsing/parse.tab.c" /* yacc.c:1646  */
+#line 1407 "src/parsing/parse.tab.c" /* yacc.c:1646  */
     break;
 
   case 11:
@@ -1411,7 +1413,7 @@ yyreduce:
   *cmd = NULL;
   (yyval.cmd) = mk_echo_command(cmd);
 }
-#line 1415 "src/parsing/parse.tab.c" /* yacc.c:1646  */
+#line 1417 "src/parsing/parse.tab.c" /* yacc.c:1646  */
     break;
 
   case 12:
@@ -1419,7 +1421,7 @@ yyreduce:
     {
   (yyval.cmd) = mk_echo_command(as_array_CmdStrs(&(yyvsp[0].cmd_strs), NULL));
 }
-#line 1423 "src/parsing/parse.tab.c" /* yacc.c:1646  */
+#line 1425 "src/parsing/parse.tab.c" /* yacc.c:1646  */
     break;
 
   case 13:
@@ -1427,7 +1429,7 @@ yyreduce:
     {
   (yyval.cmd) = mk_export_command((yyvsp[-2].str), (yyvsp[0].str));
 }
-#line 1431 "src/parsing/parse.tab.c" /* yacc.c:1646  */
+#line 1433 "src/parsing/parse.tab.c" /* yacc.c:1646  */
     break;
 
   case 14:
@@ -1435,7 +1437,7 @@ yyreduce:
     {
   (yyval.cmd) = mk_cd_command(memory_pool_strdup(lookup_env("HOME")));
 }
-#line 1439 "src/parsing/parse.tab.c" /* yacc.c:1646  */
+#line 1441 "src/parsing/parse.tab.c" /* yacc.c:1646  */
     break;
 
   case 15:
@@ -1451,7 +1453,7 @@ yyreduce:
 
   (yyval.cmd) = mk_cd_command(ret);
 }
-#line 1455 "src/parsing/parse.tab.c" /* yacc.c:1646  */
+#line 1457 "src/parsing/parse.tab.c" /* yacc.c:1646  */
     break;
 
   case 16:
@@ -1459,7 +1461,7 @@ yyreduce:
     {
   (yyval.cmd) = mk_pwd_command();
 }
-#line 1463 "src/parsing/parse.tab.c" /* yacc.c:1646  */
+#line 1465 "src/parsing/parse.tab.c" /* yacc.c:1646  */
     break;
 
   case 17:
@@ -1467,7 +1469,7 @@ yyreduce:
     {
   (yyval.cmd) = mk_jobs_command();
 }
-#line 1471 "src/parsing/parse.tab.c" /* yacc.c:1646  */
+#line 1473 "src/parsing/parse.tab.c" /* yacc.c:1646  */
     break;
 
   case 18:
@@ -1475,7 +1477,7 @@ yyreduce:
     {
   (yyval.cmd) = mk_exit_command();
 }
-#line 1479 "src/parsing/parse.tab.c" /* yacc.c:1646  */
+#line 1481 "src/parsing/parse.tab.c" /* yacc.c:1646  */
     break;
 
   case 19:
@@ -1483,7 +1485,7 @@ yyreduce:
     {
   (yyval.cmd) = mk_kill_command((yyvsp[-1].str), (yyvsp[0].str));
 }
-#line 1487 "src/parsing/parse.tab.c" /* yacc.c:1646  */
+#line 1489 "src/parsing/parse.tab.c" /* yacc.c:1646  */
     break;
 
   case 20:
@@ -1491,7 +1493,7 @@ yyreduce:
     {
   (yyval.redirect) = (yyvsp[0].redirect);
 }
-#line 1495 "src/parsing/parse.tab.c" /* yacc.c:1646  */
+#line 1497 "src/parsing/parse.tab.c" /* yacc.c:1646  */
     break;
 
   case 21:
@@ -1499,7 +1501,7 @@ yyreduce:
     {
   (yyval.redirect) = mk_redirect(NULL, NULL, false);
 }
-#line 1503 "src/parsing/parse.tab.c" /* yacc.c:1646  */
+#line 1505 "src/parsing/parse.tab.c" /* yacc.c:1646  */
     break;
 
   case 22:
@@ -1519,7 +1521,7 @@ yyreduce:
 
   (yyval.redirect) = (yyvsp[0].redirect);
 }
-#line 1523 "src/parsing/parse.tab.c" /* yacc.c:1646  */
+#line 1525 "src/parsing/parse.tab.c" /* yacc.c:1646  */
     break;
 
   case 23:
@@ -1538,7 +1540,7 @@ yyreduce:
 
   (yyval.redirect) = r;
 }
-#line 1542 "src/parsing/parse.tab.c" /* yacc.c:1646  */
+#line 1544 "src/parsing/parse.tab.c" /* yacc.c:1646  */
     break;
 
   case 24:
@@ -1546,7 +1548,7 @@ yyreduce:
     {
   (yyval.integer) = REDIRECT_IN;
 }
-#line 1550 "src/parsing/parse.tab.c" /* yacc.c:1646  */
+#line 1552 "src/parsing/parse.tab.c" /* yacc.c:1646  */
     break;
 
   case 25:
@@ -1554,7 +1556,7 @@ yyreduce:
     {
   (yyval.integer) = REDIRECT_OUT;
 }
-#line 1558 "src/parsing/parse.tab.c" /* yacc.c:1646  */
+#line 1560 "src/parsing/parse.tab.c" /* yacc.c:1646  */
     break;
 
   case 26:
@@ -1562,7 +1564,7 @@ yyreduce:
     {
   (yyval.integer) = REDIRECT_APPEND;
 }
-#line 1566 "src/parsing/parse.tab.c" /* yacc.c:1646  */
+#line 1568 "src/parsing/parse.tab.c" /* yacc.c:1646  */
     break;
 
   case 27:
@@ -1570,7 +1572,7 @@ yyreduce:
     {
   (yyval.integer) = 0;
 }
-#line 1574 "src/parsing/parse.tab.c" /* yacc.c:1646  */
+#line 1576 "src/parsing/parse.tab.c" /* yacc.c:1646  */
     break;
 
   case 28:
@@ -1578,7 +1580,7 @@ yyreduce:
     {
   (yyval.integer) = 1;
 }
-#line 1582 "src/parsing/parse.tab.c" /* yacc.c:1646  */
+#line 1584 "src/parsing/parse.tab.c" /* yacc.c:1646  */
     break;
 
   case 29:
@@ -1588,7 +1590,7 @@ yyreduce:
 
   (yyval.cmd_strs) = (yyvsp[0].cmd_strs);
 }
-#line 1592 "src/parsing/parse.tab.c" /* yacc.c:1646  */
+#line 1594 "src/parsing/parse.tab.c" /* yacc.c:1646  */
     break;
 
   case 30:
@@ -1601,7 +1603,7 @@ yyreduce:
 
   (yyval.cmd_strs) = args;
 }
-#line 1605 "src/parsing/parse.tab.c" /* yacc.c:1646  */
+#line 1607 "src/parsing/parse.tab.c" /* yacc.c:1646  */
     break;
 
   case 31:
@@ -1614,7 +1616,7 @@ yyreduce:
 
   (yyval.cmd_strs) = args;
 }
-#line 1618 "src/parsing/parse.tab.c" /* yacc.c:1646  */
+#line 1620 "src/parsing/parse.tab.c" /* yacc.c:1646  */
     break;
 
   case 32:
@@ -1624,7 +1626,7 @@ yyreduce:
 
   (yyval.cmd_strs) = (yyvsp[0].cmd_strs);
 }
-#line 1628 "src/parsing/parse.tab.c" /* yacc.c:1646  */
+#line 1630 "src/parsing/parse.tab.c" /* yacc.c:1646  */
     break;
 
   case 33:
@@ -1632,7 +1634,7 @@ yyreduce:
     {
   (yyval.str) = (yyvsp[0].str);
 }
-#line 1636 "src/parsing/parse.tab.c" /* yacc.c:1646  */
+#line 1638 "src/parsing/parse.tab.c" /* yacc.c:1646  */
     break;
 
   case 34:
@@ -1640,7 +1642,7 @@ yyreduce:
     {
   (yyval.str) = (yyvsp[0].str);
 }
-#line 1644 "src/parsing/parse.tab.c" /* yacc.c:1646  */
+#line 1646 "src/parsing/parse.tab.c" /* yacc.c:1646  */
     break;
 
   case 35:
@@ -1648,7 +1650,7 @@ yyreduce:
     {
   (yyval.str) = memory_pool_strdup("echo");
 }
-#line 1652 "src/parsing/parse.tab.c" /* yacc.c:1646  */
+#line 1654 "src/parsing/parse.tab.c" /* yacc.c:1646  */
     break;
 
   case 36:
@@ -1656,7 +1658,7 @@ yyreduce:
     {
   (yyval.str) = memory_pool_strdup("export");
 }
-#line 1660 "src/parsing/parse.tab.c" /* yacc.c:1646  */
+#line 1662 "src/parsing/parse.tab.c" /* yacc.c:1646  */
     break;
 
   case 37:
@@ -1664,7 +1666,7 @@ yyreduce:
     {
   (yyval.str) = memory_pool_strdup("cd");
 }
-#line 1668 "src/parsing/parse.tab.c" /* yacc.c:1646  */
+#line 1670 "src/parsing/parse.tab.c" /* yacc.c:1646  */
     break;
 
   case 38:
@@ -1672,7 +1674,7 @@ yyreduce:
     {
   (yyval.str) = memory_pool_strdup("kill");
 }
-#line 1676 "src/parsing/parse.tab.c" /* yacc.c:1646  */
+#line 1678 "src/parsing/parse.tab.c" /* yacc.c:1646  */
     break;
 
   case 39:
@@ -1680,7 +1682,7 @@ yyreduce:
     {
   (yyval.str) = memory_pool_strdup("pwd");
 }
-#line 1684 "src/parsing/parse.tab.c" /* yacc.c:1646  */
+#line 1686 "src/parsing/parse.tab.c" /* yacc.c:1646  */
     break;
 
   case 40:
@@ -1688,7 +1690,7 @@ yyreduce:
     {
   (yyval.str) = memory_pool_strdup("jobs");
 }
-#line 1692 "src/parsing/parse.tab.c" /* yacc.c:1646  */
+#line 1694 "src/parsing/parse.tab.c" /* yacc.c:1646  */
     break;
 
   case 41:
@@ -1696,7 +1698,7 @@ yyreduce:
     {
   (yyval.str) = (yyvsp[0].str);
 }
-#line 1700 "src/parsing/parse.tab.c" /* yacc.c:1646  */
+#line 1702 "src/parsing/parse.tab.c" /* yacc.c:1646  */
     break;
 
   case 42:
@@ -1704,7 +1706,7 @@ yyreduce:
     {
   (yyval.str) = interpret_complex_string_token((yyvsp[0].str));
 }
-#line 1708 "src/parsing/parse.tab.c" /* yacc.c:1646  */
+#line 1710 "src/parsing/parse.tab.c" /* yacc.c:1646  */
     break;
 
   case 43:
@@ -1712,7 +1714,7 @@ yyreduce:
     {
   (yyval.str) = (yyvsp[0].str);
 }
-#line 1716 "src/parsing/parse.tab.c" /* yacc.c:1646  */
+#line 1718 "src/parsing/parse.tab.c" /* yacc.c:1646  */
     break;
 
   case 44:
@@ -1720,7 +1722,7 @@ yyreduce:
     {
   (yyval.str) = (yyvsp[0].str);
 }
-#line 1724 "src/parsing/parse.tab.c" /* yacc.c:1646  */
+#line 1726 "src/parsing/parse.tab.c" /* yacc.c:1646  */
     break;
 
   case 45:
@@ -1728,11 +1730,11 @@ yyreduce:
     {
   (yyval.str) = (yyvsp[0].str);
 }
-#line 1732 "src/parsing/parse.tab.c" /* yacc.c:1646  */
+#line 1734 "src/parsing/parse.tab.c" /* yacc.c:1646  */
     break;
 
 
-#line 1736 "src/parsing/parse.tab.c" /* yacc.c:1646  */
+#line 1738 "src/parsing/parse.tab.c" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
